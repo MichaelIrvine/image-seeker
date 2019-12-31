@@ -1,0 +1,9 @@
+@import './imageList';
+@import './searchBar';
+
+
+body {
+  background-color: $bodyColor;
+  font-family: $baseFont;
+  font-size: 16px;
+}

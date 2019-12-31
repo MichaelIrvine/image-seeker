@@ -1,0 +1,18 @@
+@mixin delay($rule, $number, $value) {
+  @for $i from 1 to ($number + 1) {
+    &:nth-child(#{$i}) {
+      -webkit-#{$rule}-delay: (#{($number - $i) * $value});
+      #{$rule}-delay: (#{($number - $i) * $value});
+    }
+  }
+}
+
+
+@mixin delay-forward($rule, $number, $value) {
+  @for $i from 1 to ($number + 1) {
+    &:nth-child(#{$i}) {
+      -webkit-#{$rule}-delay: (#{$i*$value});
+      #{$rule}-delay: (#{$i*$value});
+    }
+  }
+}

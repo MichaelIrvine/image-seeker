@@ -6,8 +6,8 @@ export const searchImages =  (queriedItem) => {
     const response = await unsplash.get("search/photos",{
       params: {
         query: {queriedItem},
-        per_page: 6,
-        orientation: 'squarish'
+        per_page: 12,
+        orientation: 'landscape'
       }
     })
 
