@@ -7,10 +7,12 @@ import SearchForm from "./SearchForm";
 const App = () => {
   return (
     <div className="main_container">
+      <div className="container__title">
+        <h1>Image Seeker</h1>
+      </div>
       <div className="container__search-bar">
         <SearchForm />
       </div>
-      
       <ImageGrid />
     </div>
   );

@@ -1,37 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchImages } from '../actions';
+import { searchImages } from "../actions";
+import { ReactComponent as SearchIcon } from "../images/eyecon.svg";
 
 class SearchForm extends React.Component {
-  state = { value: '' };
+  state = { value: "" };
 
-  handleSubmit = (e) => {
-      e.preventDefault();
-      this.props.searchImages(this.state.value);
-      this.setState({value: ''});
-  }
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.searchImages(this.state.value);
+    this.setState({ value: "" });
+  };
 
   render() {
-
-      return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={e => this.setState({
-                value: e.target.value
-              })}
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      );
-    }
+    return (
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <SearchIcon className="eyecon" />
+        <input
+          className="search-bar"
+          type="text"
+          value={this.state.value}
+          placeholder="Search Images"
+          onChange={e =>
+            this.setState({
+              value: e.target.value
+            })
+          }
+        />
+      </form>
+    );
+  }
 }
 
 const mapStateToProps = state => {
   return { searchedImages: state.searchedImages };
-}
+};
 
-export default connect(mapStateToProps, {searchImages})(SearchForm);
+export default connect(mapStateToProps, { searchImages })(SearchForm);

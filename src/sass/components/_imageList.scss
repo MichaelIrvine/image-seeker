@@ -5,14 +5,14 @@
 
   .image-list__grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     grid-gap: 0.3em;
-    width: 98%;
+    width: 93%;
     margin: 0 auto;
     
     .image-item {
       transition: all 0.9s ease-in-out;
-      @include delay(transition, 12, 0.05s);
+      @include delay(transition, 12, 0.07s);
 
       img {
         width: 100%;
