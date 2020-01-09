@@ -7,7 +7,7 @@ import { ReactComponent as SearchIcon } from "../images/eyecon.svg";
 class SearchFormRedux extends React.Component {
   onSubmit = formValues => {
     this.props.searchImages(formValues);
-    
+    this.props.reset();
   };
 
   renderError({ error, touched }) {
