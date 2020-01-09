@@ -5,13 +5,13 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class ImageItem extends React.Component {
   componentDidMount() {
-    return this.props.searchImages("sky");
+    return this.props.searchImages("night");
   }
 
   renderList() {
     return this.props.searchedImages.data.results.map(image => {
+      const backgroundImage = `url(${image.urls.small})`;
       return (
-        
           <CSSTransition
             classNames="fade"
             key={image.id}
@@ -20,7 +20,7 @@ class ImageItem extends React.Component {
             timeout={1200}
           >
           <li className="image-item" key={image.id}>
-            <img src={image.urls.small} alt={image.alt_description} />
+            <div className="background-image"style={{backgroundImage}}></div>
           </li>
           </CSSTransition>
           

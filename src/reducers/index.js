@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 const searchImageReducer = (searchImage = null, action) =>{
   if(action.type === 'SEARCH_IMAGES'){
@@ -10,5 +11,6 @@ const searchImageReducer = (searchImage = null, action) =>{
 
 
 export default combineReducers({
-  searchedImages: searchImageReducer
+  searchedImages: searchImageReducer,
+  form: formReducer
 })

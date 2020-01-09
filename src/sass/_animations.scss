@@ -1,6 +1,46 @@
 
 
 /* appear - on page load */
+.container__title.fade-appear {
+  opacity: 0;
+  z-index: 1;
+  
+}
+.container__title.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 1000ms linear;
+}
+
+/* enter */
+.container__title.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+.container__title.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 900ms ease-in;
+}
+
+/* exit */
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 1500ms ease-in-out;
+  transition-delay: 1000s;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+/* appear - on page load */
 .fade-appear {
   opacity: 0;
   z-index: 1;
@@ -9,7 +49,6 @@
   opacity: 1;
   transition: opacity 1000ms ease-in-out;
 }
-
 
 /* enter */
 .fade-enter {

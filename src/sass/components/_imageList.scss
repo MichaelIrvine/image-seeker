@@ -6,17 +6,19 @@
   .image-list__grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-    grid-gap: 0.3em;
+    grid-gap: 0.4em;
     width: 93%;
-    margin: 0 auto;
+    margin: 0 auto 10vh;
     
     .image-item {
       transition: all 0.9s ease-in-out;
       @include delay(transition, 12, 0.07s);
 
-      img {
-        width: 100%;
-        height: 100%;
+      .background-image {
+        height: 250px; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+        background-size: cover;
       }
     }
   }
