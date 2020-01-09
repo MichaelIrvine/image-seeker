@@ -3,8 +3,7 @@ import React from "react";
 import { CSSTransition } from "react-transition-group";
 
 import ImageGrid from "./ImageList";
-// import SearchForm from "./SearchForm";
-import SearchFormRedux from "./SearchFormRedux";
+import SearchFormRedux from "./SearchForm";
 
 const App = () => {
   return (

@@ -1,39 +1,62 @@
 import React from "react";
 import { connect } from "react-redux";
 import { searchImages } from "../actions";
+import { Field, reduxForm } from "redux-form";
 import { ReactComponent as SearchIcon } from "../images/eyecon.svg";
 
-class SearchForm extends React.Component {
-  state = { value: "" };
+class SearchFormRedux extends React.Component {
+  onSubmit = formValues => {
+    this.props.searchImages(formValues);
+    this.props.reset();
+  };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.searchImages(this.state.value);
-    this.setState({ value: "" });
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return <span className="error-message">{error}</span>;
+    }
+  }
+
+  renderInput = ({ input, meta }) => {
+    return (
+      <div className="search-component_wrapper">
+        <div className="search-bar_wrapper">
+          <SearchIcon className="eyecon" />
+          <input
+            {...input}
+            placeholder="Search Images"
+            className="search-bar"
+          />
+        </div>
+        <div className="error_wrapper">{this.renderError(meta)}</div>
+      </div>
+    );
   };
 
   render() {
     return (
-      <form className="search-form" onSubmit={this.handleSubmit}>
-        <SearchIcon className="eyecon" />
-        <input
-          className="search-bar"
-          type="text"
-          value={this.state.value}
-          placeholder="Search Images"
-          onChange={e =>
-            this.setState({
-              value: e.target.value
-            })
-          }
-        />
+      <form
+        className="search-form"
+        onSubmit={this.props.handleSubmit(this.onSubmit)}
+      >
+        <Field name="search" component={this.renderInput} />
       </form>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return { searchedImages: state.searchedImages };
+const validate = formValues => {
+  const errors = {};
+
+  if (!formValues.search) {
+    errors.search = "Enter something to search for";
+  }
+
+  return errors;
 };
 
-export default connect(mapStateToProps, { searchImages })(SearchForm);
+const formWrapped = reduxForm({
+  form: "Image Search",
+  validate
+})(SearchFormRedux);
+
+export default connect(null, { searchImages })(formWrapped);
