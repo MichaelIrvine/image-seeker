@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import App from "./components/App";
 
+process.env.ENV = process.env.NODE_ENV
 
 const store = createStore(
   reducers,
